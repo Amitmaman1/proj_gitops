@@ -6,7 +6,9 @@ image:
   tag: "latest"
   pullPolicy: Always
 
-imagePullSecrets: []
+imagePullSecrets:
+  - name: ecr-registry-secret
+
 nameOverride: ""
 fullnameOverride: ""
 
@@ -70,3 +72,11 @@ secrets: []
   # - name: secret-name
   #   data:
   #     key: value
+
+healthCheck:
+  livenessPath: /health
+  readinessPath: /health
+
+ecr:
+  username: AWS
+  password: ""  # This should be set via --set or environment variable
