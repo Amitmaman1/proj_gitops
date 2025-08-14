@@ -1,0 +1,16 @@
+apiVersion: v2
+name: my-app
+description: DevOps Interviewer Application
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
+
+keywords:
+  - application
+  - devops
+  - interviewer
+  - deployment
+
+maintainers:
+  - name: DevOps Team
+    email: devops@company.com
