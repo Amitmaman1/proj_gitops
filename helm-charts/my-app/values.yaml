@@ -9,20 +9,6 @@ image:
 imagePullSecrets:
   - name: ecr-registry-secret
 
-nameOverride: ""
-fullnameOverride: ""
-
-serviceAccount:
-  create: true
-  annotations: {}
-  name: ""
-
-podAnnotations: {}
-
-podSecurityContext: {}
-
-securityContext: {}
-
 service:
   type: ClusterIP
   port: 8080
@@ -30,13 +16,11 @@ service:
 ingress:
   enabled: true
   className: "nginx"
-  annotations: {}
   hosts:
     - host: amitmaman.online
       paths:
         - path: /
           pathType: Prefix
-  tls: []
 
 resources:
   limits:
@@ -46,37 +30,6 @@ resources:
     cpu: 250m
     memory: 256Mi
 
-autoscaling:
-  enabled: false
-  minReplicas: 2
-  maxReplicas: 10
-  targetCPUUtilizationPercentage: 80
-  targetMemoryUtilizationPercentage: 80
-
-nodeSelector: {}
-
-tolerations: []
-
-affinity: {}
-
-env: []
-  # - name: ENV_VAR
-  #   value: "value"
-
-configMaps: []
-  # - name: config-name
-  #   data:
-  #     key: value
-
-secrets: []
-  # - name: secret-name
-  #   data:
-  #     key: value
-
 healthCheck:
   livenessPath: /health
   readinessPath: /health
-
-ecr:
-  username: AWS
-  password: ""  # This should be set via --set or environment variable
